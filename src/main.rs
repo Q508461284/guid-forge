@@ -1,3 +1,5 @@
+#![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
+
 use gpui_kit::component::{
     Sizable as _,
     button::{Button, ButtonVariants},
