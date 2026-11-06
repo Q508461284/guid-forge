@@ -1,12 +1,12 @@
 [package]
 name = "guid-forge"
-version = "0.1.0"
+version = "1.0.0"
 edition = "2024"
 description = "一个支持七种格式的 GUID 生成器" # 会作为 FileDescription
 build = "build.rs"                             # 启用构建脚本
 
 [[bin]]
-name = "GUID生成器"
+name = "GUID-Forge"
 path = "src/main.rs"
 
 [dependencies]
@@ -17,9 +17,9 @@ uuid = { version = "1.29.0", features = ["v4"] }
 [package.metadata.winresource]
 ProductName = "GUID生成器"
 FileDescription = "一个支持七种格式的 GUID 生成器" # 显式指定，双保险
-CompanyName = "Your Sunny"
+CompanyName = "Sunny"
 LegalCopyright = "Copyright © 2026 Sunny"
-OriginalFilename = "GUID生成器.exe"             # 与你的二进制名称一致
+OriginalFilename = "GUID-Forge.exe"             # 与你的二进制名称一致
 
 [build-dependencies]
 winresource = "0.1"                            # 添加构建依赖
