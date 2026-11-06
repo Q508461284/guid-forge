@@ -1,0 +1,32 @@
+[package]
+name = "guid-forge"
+version = "0.1.0"
+edition = "2024"
+description = "一个支持七种格式的 GUID 生成器" # 会作为 FileDescription
+build = "build.rs"                             # 启用构建脚本
+
+[[bin]]
+name = "GUID生成器"
+path = "src/main.rs"
+
+[dependencies]
+gpui-kit = { version = "0.8.0", features = ["gpui-fast"] }
+uuid = { version = "1.29.0", features = ["v4"] }
+
+# Windows 资源元数据（winresource 会自动读取）
+[package.metadata.winresource]
+ProductName = "GUID生成器"
+FileDescription = "一个支持七种格式的 GUID 生成器" # 显式指定，双保险
+CompanyName = "Your Sunny"
+LegalCopyright = "Copyright © 2026 Sunny"
+OriginalFilename = "GUID生成器.exe"             # 与你的二进制名称一致
+
+[build-dependencies]
+winresource = "0.1"                            # 添加构建依赖
+
+[profile.release]
+lto = "fat"          # 链接时优化
+codegen-units = 1    # 代码生成单元
+strip = "symbols"    # 移除符号信息
+panic = "abort"      # panic 策略
+opt-level = 3        # 优化等级
